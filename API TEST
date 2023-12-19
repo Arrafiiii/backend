@@ -1,0 +1,207 @@
+USERS DATA
+1. TEST API for Create New User (Sign UP)
+in postman
+POST http://localhost:3000/signup
+body : {
+  "name": "Arrafii",
+  "email": "Arrafii@example.com",
+  "password": "Arrafii",
+  "role":"Cloud Computing"
+}
+
+Respond :
+{ 
+'User registered successfully' 
+}
+
+2. TEST API for Login User (Sign IN)
+in postman
+PUT http://localhost:3000/signin
+body : {
+  "email": "Arrafii@example.com",
+  "password": "Arrafii"
+}
+
+respond : 
+{
+  token : "uewfhweufhewifhfewfeh"
+}
+
+3. TEST API for Show User Data (Profile Detail)
+in postman
+GET http://localhost:3000/profile_detail
+Authorization :
+Bearer Token : YOUR_TOKEN
+
+respond :
+{
+    "name": "Arrafii",
+    "email": "Arrafii@example.com",
+    "role": "Cloud Computing"
+}
+
+4. TEST API for Edit User Data (Profile Detail)
+in postman
+PUT http://localhost:3000/profile_detail
+Authorization :
+Bearer Token : YOUR_TOKEN
+
+body:
+{
+  "name": "Arrafii",
+  "email": "Arrafii@example.com",
+  "role": "Machine Learning"
+}
+
+respond :
+{
+    "message": "Profile updated successfully"
+}
+
+PROJECTS DATA
+
+1. TEST API for Create Project
+in postman
+POST http://localhost:3000/project
+Authorization :
+Bearer Token : YOUR_TOKEN
+
+body : 
+{
+  "name": "B Project",
+  "description": "Deskripsi Proyek",
+  "duration": 13,
+  "deadline": "2023-12-31",
+  "price": 5000000,
+  "role": "Cloud Computing",
+  "amount_per_role": 2,
+  "SKPL_doc": "Base64EncodedSKPLDoc",
+  "Kontrak_doc": "Base64EncodedKontrakDoc",
+  "github_link": "https://github.com/username/projectname",
+  "contract_doc": "Base64EncodedContractDoc",
+  "status": "ongoing"
+}
+
+respon : 
+{
+    "message": "Project added successfully"
+}
+
+2. TEST API for Show Project
+GET http://localhost:3000/project
+Authorization :
+Bearer Token : YOUR_TOKEN
+
+respond :
+[
+    {
+        "id": 3,
+        "name": "B Project",
+        "description": "Deskripsi Proyek",
+        "duration": 13,
+        "deadline": "2023-12-30T17:00:00.000Z",
+        "price": "5000000.00",
+        "role": "Cloud Computing",
+        "amount_per_role": 2,
+        "SKPL_doc": {
+            "type": "Buffer",
+            "data": [
+                66,
+                97,
+                115,
+                101,
+                54,
+                52,
+                69,
+                110,
+                99,
+                111,
+                100,
+                101,
+                100,
+                83,
+                75,
+                80,
+                76,
+                68,
+                111,
+                99
+            ]
+        },
+        "Kontrak_doc": {
+            "type": "Buffer",
+            "data": [
+                66,
+                97,
+                115,
+                101,
+                54,
+                52,
+                69,
+                110,
+                99,
+                111,
+                100,
+                101,
+                100,
+                75,
+                111,
+                110,
+                116,
+                114,
+                97,
+                107,
+                68,
+                111,
+                99
+            ]
+        },
+        "github_link": "https://github.com/username/projectname",
+        "contract_doc": {
+            "type": "Buffer",
+            "data": [
+                66,
+                97,
+                115,
+                101,
+                54,
+                52,
+                69,
+                110,
+                99,
+                111,
+                100,
+                101,
+                100,
+                67,
+                111,
+                110,
+                116,
+                114,
+                97,
+                99,
+                116,
+                68,
+                111,
+                99
+            ]
+        },
+        "status": "ongoing",
+        "user_id": 4
+    }
+]
+
+3. TEST API for Edit Status Project
+PUT http://localhost:3000/project/3
+Authorization :
+Bearer Token : YOUR_TOKEN
+
+body :
+{
+  "status": "On going"
+}
+
+respond : 
+{
+    "message": "Project status updated successfully"
+}
